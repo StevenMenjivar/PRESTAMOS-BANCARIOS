@@ -19,6 +19,7 @@ public class Fiador {
     @Column(name = "dui_fiador")
     private char duiFiador;
 
+
     public Fiador(){}
 
     public Integer getId() {

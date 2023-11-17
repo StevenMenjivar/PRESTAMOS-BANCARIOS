@@ -23,9 +23,22 @@ public class Prestamo implements Serializable {
 
     @Column(name = "cuota_pago_prestamo")
     private int cuotasPagoPrestamo;
-    @ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) @JoinColumn(name = "pago_id", foreignKey = @ForeignKey(name = "FK_pago_id"))
-    private Pago pago;
 
+    @ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) @JoinColumn(name = "garantia_id", foreignKey = @ForeignKey(name = "FK_garantia_id"))
+    private Garantia garantia;
+
+    @ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) @JoinColumn(name = "cliente_id", foreignKey = @ForeignKey(name = "FK_cliente_id"))
+    private Cliente cliente;
+
+    @ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) @JoinColumn(name = "empleado_id", foreignKey = @ForeignKey(name = "FK_empleado_id"))
+    private Empleado empleado;
+
+
+    @ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) @JoinColumn(name = "tipoprestamo_id", foreignKey = @ForeignKey(name = "FK_tipoprestamo_id"))
+    private TipoPrestamo tipoPrestamo;
+
+    @OneToOne(optional = true, cascade = CascadeType.ALL) @JoinColumn(name = "fiador_id", foreignKey = @ForeignKey(name = "FK_fiador_ID"))
+    private Fiador fiador;
     public Prestamo(){}
 
     public Prestamo(Integer id, Double cantidadPrestamo, Double tasaInteresPrestamo, int plazoPagoPrestamo, int cuotasPagoPrestamo) {

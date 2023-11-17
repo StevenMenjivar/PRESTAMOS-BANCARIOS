@@ -3,8 +3,8 @@ package com.PrestamoBancarios.Prestamo.modelo.entidades;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "tipoempleados")
-public class TipoEmpleado {
+@Table(name = "tipoClientes")
+public class TipoCliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,7 +13,7 @@ public class TipoEmpleado {
     @Column(name = "descripcion")
     private String descripcion;
 
-    public TipoEmpleado(){}
+    public TipoCliente(){}
 
     public Integer getId() {
         return id;

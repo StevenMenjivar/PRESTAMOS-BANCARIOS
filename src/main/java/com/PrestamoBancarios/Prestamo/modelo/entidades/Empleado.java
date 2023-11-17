@@ -2,6 +2,8 @@ package com.PrestamoBancarios.Prestamo.modelo.entidades;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "empleados")
 public class Empleado {
@@ -15,6 +17,19 @@ public class Empleado {
 
     @Column(name = "apellido_empleado")
     private String apellidoEmpleado;
+    @ManyToMany(
+            fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            }
+    )
+    @JoinTable(
+            name = "empleado_sucursal",
+            joinColumns = @JoinColumn(name = "empleado_id"),
+            inverseJoinColumns = @JoinColumn(name = "sucursal_id")
+    )
+    private Set<Sucursal> sucursals;
 
     public Empleado(){}
 

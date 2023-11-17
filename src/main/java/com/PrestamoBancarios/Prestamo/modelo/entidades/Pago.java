@@ -16,6 +16,8 @@ public class Pago {
 
     @Column(name = "fecha_pago")
     private LocalDateTime fechaPago;
+    @ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) @JoinColumn(name = "prestamo_id", foreignKey = @ForeignKey(name = "FK_prestamo_id"))
+    private Prestamo prestamo;
 
 
     public Pago(){}
