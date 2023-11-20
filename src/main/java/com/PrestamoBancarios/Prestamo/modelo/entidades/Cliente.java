@@ -22,7 +22,7 @@ public class Cliente {
     private int edadCliente;
 
     @Column(name = "dui_cliente")
-    private char duiCliente;
+    private String duiCliente;
 
     @Column(name = "sueldo_liquido_cliente")
     private Double sueldoLiquidoCliente;
@@ -43,7 +43,7 @@ public class Cliente {
 
     public Cliente(){}
 
-    public Cliente(Integer id, String nombreCliente, String apellidoCliente, int edadCliente, char duiCliente, Double sueldoLiquidoCliente) {
+    public Cliente(Integer id, String nombreCliente, String apellidoCliente, int edadCliente, String duiCliente, Double sueldoLiquidoCliente) {
         this.id = id;
         this.nombreCliente = nombreCliente;
         this.apellidoCliente = apellidoCliente;
@@ -84,11 +84,11 @@ public class Cliente {
         this.edadCliente = edadCliente;
     }
 
-    public char getDuiCliente() {
+    public String getDuiCliente() {
         return duiCliente;
     }
 
-    public void setDuiCliente(char duiCliente) {
+    public void setDuiCliente(String duiCliente) {
         this.duiCliente = duiCliente;
     }
 

@@ -24,6 +24,7 @@ public class Prestamo implements Serializable {
     @Column(name = "cuota_pago_prestamo")
     private int cuotasPagoPrestamo;
 
+
     @ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) @JoinColumn(name = "garantia_id", foreignKey = @ForeignKey(name = "FK_garantia_id"))
     private Garantia garantia;
 
