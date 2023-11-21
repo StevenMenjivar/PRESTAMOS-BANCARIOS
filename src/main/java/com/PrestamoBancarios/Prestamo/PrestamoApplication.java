@@ -23,20 +23,20 @@ public class PrestamoApplication {
 		SpringApplication.run(PrestamoApplication.class, args);
 	}
 
+
 	@Bean
 	public CommandLineRunner runner(){
 		return args -> {
 			Prestamo prestamo = new Prestamo(null,100.5,20.5,10,5);
 			Cliente cliente = new Cliente(null,"Saul","Abarca",24,  "1002515-2" ,500.00);
 
-			
-
-
-			Cliente save = servicio.save(cliente);
+		    /*Cliente save = servicio.save(cliente);
 			System.out.println(save.toString());
-
 			Prestamo save1 = servicio1.save(prestamo);
-			System.out.println(save1.toString());
+			System.out.println(save1.toString());*/
+
+			prestamo.setCliente(cliente);
+			Prestamo save = servicio1.save(prestamo);
 		};
 	}
 }

@@ -1,6 +1,7 @@
 package com.PrestamoBancarios.Prestamo.modelo.entidades;
 
 import jakarta.persistence.*;
+import org.springframework.data.annotation.Reference;
 
 import java.io.Serializable;
 
@@ -23,6 +24,7 @@ public class Prestamo implements Serializable {
 
     @Column(name = "cuota_pago_prestamo")
     private int cuotasPagoPrestamo;
+
 
 
     @ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) @JoinColumn(name = "garantia_id", foreignKey = @ForeignKey(name = "FK_garantia_id"))
@@ -88,5 +90,45 @@ public class Prestamo implements Serializable {
 
     public void setCuotasPagoPrestamo(int cuotasPagoPrestamo) {
         this.cuotasPagoPrestamo = cuotasPagoPrestamo;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Garantia getGarantia() {
+        return garantia;
+    }
+
+    public void setGarantia(Garantia garantia) {
+        this.garantia = garantia;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
+    public TipoPrestamo getTipoPrestamo() {
+        return tipoPrestamo;
+    }
+
+    public void setTipoPrestamo(TipoPrestamo tipoPrestamo) {
+        this.tipoPrestamo = tipoPrestamo;
+    }
+
+    public Fiador getFiador() {
+        return fiador;
+    }
+
+    public void setFiador(Fiador fiador) {
+        this.fiador = fiador;
     }
 }
