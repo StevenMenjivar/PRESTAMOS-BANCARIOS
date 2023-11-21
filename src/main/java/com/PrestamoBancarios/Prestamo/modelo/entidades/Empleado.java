@@ -31,6 +31,12 @@ public class Empleado {
     )
     private Set<Sucursal> sucursals;
 
+    public Empleado(Integer id, String nombreEmpleado, String apellidoEmpleado) {
+        this.id = id;
+        this.nombreEmpleado = nombreEmpleado;
+        this.apellidoEmpleado = apellidoEmpleado;
+    }
+
     public Empleado(){}
 
     public Integer getId() {
