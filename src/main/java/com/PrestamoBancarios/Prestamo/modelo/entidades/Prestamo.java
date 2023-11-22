@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import org.springframework.data.annotation.Reference;
 
 import java.io.Serializable;
+import java.util.Optional;
+import java.util.Set;
 
 @Entity
 @Table(name = "prestamos")
@@ -25,6 +27,7 @@ public class Prestamo implements Serializable {
     @Column(name = "cuota_pago_prestamo")
     private int cuotasPagoPrestamo;
 
+  public Prestamo prestamo;
 
 
     @ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) @JoinColumn(name = "garantia_id", foreignKey = @ForeignKey(name = "FK_garantia_id"))
@@ -33,8 +36,6 @@ public class Prestamo implements Serializable {
     @ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) @JoinColumn(name = "cliente_id", foreignKey = @ForeignKey(name = "FK_cliente_id"))
     private Cliente cliente;
 
-    @ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) @JoinColumn(name = "empleado_id", foreignKey = @ForeignKey(name = "FK_empleado_id"))
-    private Empleado empleado;
 
 
     @ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) @JoinColumn(name = "tipoprestamo_id", foreignKey = @ForeignKey(name = "FK_tipoprestamo_id"))
@@ -42,6 +43,25 @@ public class Prestamo implements Serializable {
 
     @OneToOne(optional = true, cascade = CascadeType.ALL) @JoinColumn(name = "fiador_id", foreignKey = @ForeignKey(name = "FK_fiador_ID"))
     private Fiador fiador;
+
+    @ManyToMany(
+            fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            }
+    )
+    @JoinTable(
+            name = "prestamo_empleados",
+            joinColumns = @JoinColumn(name = "empleado_id"),
+            inverseJoinColumns = @JoinColumn(name = "prestamo_id")
+    )
+    private Set<Empleado> empleados;
+
+
+
+
+
     public Prestamo(){}
 
     public Prestamo(Integer id, Double cantidadPrestamo, Double tasaInteresPrestamo, int plazoPagoPrestamo, int cuotasPagoPrestamo) {
@@ -108,13 +128,7 @@ public class Prestamo implements Serializable {
         this.garantia = garantia;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
-    }
 
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
-    }
 
     public TipoPrestamo getTipoPrestamo() {
         return tipoPrestamo;
@@ -130,5 +144,21 @@ public class Prestamo implements Serializable {
 
     public void setFiador(Fiador fiador) {
         this.fiador = fiador;
+    }
+
+    public Prestamo getPrestamo() {
+        return prestamo;
+    }
+
+    public void setPrestamo(Prestamo prestamo) {
+        this.prestamo = prestamo;
+    }
+
+    public Set<Empleado> getEmpleados() {
+        return empleados;
+    }
+
+    public void setEmpleados(Set<Empleado> empleados) {
+        this.empleados = empleados;
     }
 }
