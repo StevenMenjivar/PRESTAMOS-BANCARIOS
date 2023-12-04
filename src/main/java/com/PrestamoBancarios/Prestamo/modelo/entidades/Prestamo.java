@@ -1,16 +1,16 @@
 package com.PrestamoBancarios.Prestamo.modelo.entidades;
 
+import com.PrestamoBancarios.Prestamo.modelo.entidades.enumeradores.TipoPrestamo;
 import jakarta.persistence.*;
-<<<<<<< HEAD
+
 import org.springframework.data.annotation.Reference;
 
 import java.io.Serializable;
-import java.util.Optional;
-=======
+
 
 import java.io.Serializable;
 import java.util.Objects;
->>>>>>> main
+
 import java.util.Set;
 
 @Entity
@@ -33,11 +33,8 @@ public class Prestamo implements Serializable {
     @Column(name = "cuota_pago_prestamo")
     private int cuotasPagoPrestamo;
 
-<<<<<<< HEAD
+
   public Prestamo prestamo;
-=======
-    public Prestamo prestamo;
->>>>>>> main
 
 
     @ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) @JoinColumn(name = "garantia_id", foreignKey = @ForeignKey(name = "FK_garantia_id"))
@@ -74,125 +71,120 @@ public class Prestamo implements Serializable {
 
     public Prestamo(){}
 
-<<<<<<< HEAD
-    public Prestamo(Integer id, Double cantidadPrestamo, Double tasaInteresPrestamo, int plazoPagoPrestamo, int cuotasPagoPrestamo) {
-=======
-    public Prestamo(Integer id, Cliente cliente, Double cantidadPrestamo, Double tasaInteresPrestamo, int plazoPagoPrestamo, int cuotasPagoPrestamo) {
->>>>>>> main
-        this.id = id;
-        this.cantidadPrestamo = cantidadPrestamo;
-        this.tasaInteresPrestamo = tasaInteresPrestamo;
-        this.plazoPagoPrestamo = plazoPagoPrestamo;
-        this.cuotasPagoPrestamo = cuotasPagoPrestamo;
-<<<<<<< HEAD
-=======
-        this.cliente=cliente;
->>>>>>> main
+    public Prestamo(Integer id, Cliente cliente, Double cantidadPrestamo, Double tasaInteresPrestamo,
+        int plazoPagoPrestamo, int cuotasPagoPrestamo){
+
+            this.id = id;
+            this.cantidadPrestamo = cantidadPrestamo;
+            this.tasaInteresPrestamo = tasaInteresPrestamo;
+            this.plazoPagoPrestamo = plazoPagoPrestamo;
+            this.cuotasPagoPrestamo = cuotasPagoPrestamo;
+
+            this.cliente = cliente;
+
+        }
+
+        public Integer getId () {
+            return id;
+        }
+
+        public void setId (Integer id){
+            this.id = id;
+        }
+
+        public Double getCantidadPrestamo () {
+            return cantidadPrestamo;
+        }
+
+        public void setCantidadPrestamo (Double cantidadPrestamo){
+            this.cantidadPrestamo = cantidadPrestamo;
+        }
+
+        public Double getTasaInteresPrestamo () {
+            return tasaInteresPrestamo;
+        }
+
+        public void setTasaInteresPrestamo (Double tasaInteresPrestamo){
+            this.tasaInteresPrestamo = tasaInteresPrestamo;
+        }
+
+        public int getPlazoPagoPrestamo () {
+            return plazoPagoPrestamo;
+        }
+
+        public void setPlazoPagoPrestamo ( int plazoPagoPrestamo){
+            this.plazoPagoPrestamo = plazoPagoPrestamo;
+        }
+
+        public int getCuotasPagoPrestamo () {
+            return cuotasPagoPrestamo;
+        }
+
+        public void setCuotasPagoPrestamo ( int cuotasPagoPrestamo){
+            this.cuotasPagoPrestamo = cuotasPagoPrestamo;
+        }
+
+        public Cliente getCliente () {
+            return cliente;
+        }
+
+        public void setCliente (Cliente cliente){
+            this.cliente = cliente;
+        }
+
+        public Garantia getGarantia () {
+            return garantia;
+        }
+
+        public void setGarantia (Garantia garantia){
+            this.garantia = garantia;
+        }
+
+
+        public TipoPrestamo getTipoPrestamo () {
+            return tipoPrestamo;
+        }
+
+        public void setTipoPrestamo (TipoPrestamo tipoPrestamo){
+            this.tipoPrestamo = tipoPrestamo;
+        }
+
+        public Fiador getFiador () {
+            return fiador;
+        }
+
+        public void setFiador (Fiador fiador){
+            this.fiador = fiador;
+        }
+
+        public Prestamo getPrestamo () {
+            return prestamo;
+        }
+
+        public void setPrestamo (Prestamo prestamo){
+            this.prestamo = prestamo;
+        }
+
+        public Set<Empleado> getEmpleados () {
+            return empleados;
+        }
+
+        public void setEmpleados (Set < Empleado > empleados) {
+            this.empleados = empleados;
+        }
+
+
+        @Override
+        public boolean equals (Object o){
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Prestamo prestamo = (Prestamo) o;
+            return cuotasPagoPrestamo == prestamo.cuotasPagoPrestamo;
+        }
+
+        @Override
+        public int hashCode () {
+            return Objects.hash(cuotasPagoPrestamo);
+        }
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Double getCantidadPrestamo() {
-        return cantidadPrestamo;
-    }
-
-    public void setCantidadPrestamo(Double cantidadPrestamo) {
-        this.cantidadPrestamo = cantidadPrestamo;
-    }
-
-    public Double getTasaInteresPrestamo() {
-        return tasaInteresPrestamo;
-    }
-
-    public void setTasaInteresPrestamo(Double tasaInteresPrestamo) {
-        this.tasaInteresPrestamo = tasaInteresPrestamo;
-    }
-
-    public int getPlazoPagoPrestamo() {
-        return plazoPagoPrestamo;
-    }
-
-    public void setPlazoPagoPrestamo(int plazoPagoPrestamo) {
-        this.plazoPagoPrestamo = plazoPagoPrestamo;
-    }
-
-    public int getCuotasPagoPrestamo() {
-        return cuotasPagoPrestamo;
-    }
-
-    public void setCuotasPagoPrestamo(int cuotasPagoPrestamo) {
-        this.cuotasPagoPrestamo = cuotasPagoPrestamo;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public Garantia getGarantia() {
-        return garantia;
-    }
-
-    public void setGarantia(Garantia garantia) {
-        this.garantia = garantia;
-    }
-
-
-
-    public TipoPrestamo getTipoPrestamo() {
-        return tipoPrestamo;
-    }
-
-    public void setTipoPrestamo(TipoPrestamo tipoPrestamo) {
-        this.tipoPrestamo = tipoPrestamo;
-    }
-
-    public Fiador getFiador() {
-        return fiador;
-    }
-
-    public void setFiador(Fiador fiador) {
-        this.fiador = fiador;
-    }
-
-    public Prestamo getPrestamo() {
-        return prestamo;
-    }
-
-    public void setPrestamo(Prestamo prestamo) {
-        this.prestamo = prestamo;
-    }
-
-    public Set<Empleado> getEmpleados() {
-        return empleados;
-    }
-
-    public void setEmpleados(Set<Empleado> empleados) {
-        this.empleados = empleados;
-    }
-<<<<<<< HEAD
-=======
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Prestamo prestamo = (Prestamo) o;
-        return cuotasPagoPrestamo == prestamo.cuotasPagoPrestamo;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(cuotasPagoPrestamo);
-    }
->>>>>>> main
-}

@@ -2,10 +2,9 @@ package com.PrestamoBancarios.Prestamo.modelo.entidades;
 
 import jakarta.persistence.*;
 
-<<<<<<< HEAD
-=======
+
 import java.util.Objects;
->>>>>>> main
+
 import java.util.Set;
 
 @Entity
@@ -45,7 +44,8 @@ public class Cliente {
     )
     private Set<TipoCliente> tipoClientes;
 
-    public Cliente(){}
+    public Cliente() {
+    }
 
     public Cliente(Integer id, String nombreCliente, String apellidoCliente, int edadCliente, String duiCliente, Double sueldoLiquidoCliente) {
         this.id = id;
@@ -56,13 +56,12 @@ public class Cliente {
         this.sueldoLiquidoCliente = sueldoLiquidoCliente;
     }
 
-<<<<<<< HEAD
-=======
+
     public Cliente(String nombreCliente) {
         this.nombreCliente = nombreCliente;
     }
 
->>>>>>> main
+
     public Integer getId() {
         return id;
     }
@@ -111,10 +110,7 @@ public class Cliente {
         this.sueldoLiquidoCliente = sueldoLiquidoCliente;
     }
 
-<<<<<<< HEAD
 
-
-=======
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -127,5 +123,4 @@ public class Cliente {
     public int hashCode() {
         return Objects.hash(nombreCliente);
     }
->>>>>>> main
 }
