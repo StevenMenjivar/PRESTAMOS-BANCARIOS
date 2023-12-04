@@ -1,9 +1,5 @@
 package com.PrestamoBancarios.Prestamo.servicios.implementaciones;
 
-<<<<<<< HEAD
-public class GenericoDAOImpl {
-}
-=======
 
 import com.PrestamoBancarios.Prestamo.servicios.contratos.GenericoDAO;
 import org.springframework.data.repository.CrudRepository;
@@ -43,4 +39,3 @@ public class GenericoDAOImpl <E, R extends CrudRepository<E, Integer>> implement
         repository.deleteById(id);
     }
 }
->>>>>>> main

@@ -1,8 +1,5 @@
-<<<<<<< HEAD
+
 package com.PrestamoBancarios.Prestamo.modelo.entidades;
-=======
-package com.PrestamoBancarios.Prestamo.Modelo.entidades;
->>>>>>> main
 
 import jakarta.persistence.*;
 
@@ -32,5 +29,5 @@ public class TipoPrestamo {
 
     public void setDescripcion_tipo_prestamo(String descripcion_tipo_prestamo) {
         this.descripcion_tipo_prestamo = descripcion_tipo_prestamo;
-    }
+}
 }

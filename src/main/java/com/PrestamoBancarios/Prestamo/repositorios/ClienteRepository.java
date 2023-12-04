@@ -4,16 +4,14 @@ import com.PrestamoBancarios.Prestamo.modelo.entidades.Cliente;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-<<<<<<< HEAD
-import java.util.Optional;
-@Repository("repositoriocliente")
-public interface ClienteRepository extends CrudRepository<Cliente, Integer> {
 
-=======
+import java.util.Optional;
+
+
 @Repository("repositoriocliente")
 public interface ClienteRepository extends CrudRepository<Cliente, Integer> {
     Iterable<Cliente> findClienteByNombreClienteContains(String nombreCliente);
     Iterable<Cliente> findClienteByEdadClienteBetween(Integer edadCliente,Integer edadCliente2 );
     Iterable<Cliente> findClienteBySueldoLiquidoClienteAfter(Double sueldoLiquidoCliente);
->>>>>>> main
+
 }

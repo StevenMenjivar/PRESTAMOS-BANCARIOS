@@ -11,34 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 @Service
-<<<<<<< HEAD
-public class ClienteDAOImpl implements ClienteDAO {
-
-    @Autowired
-    @Qualifier("repositoriocliente")
-    private ClienteRepository repository;
-
-    @Override
-    @Transactional(readOnly = true)
-    public Optional<Cliente> findById(Integer id) {
-        return repository.findById(id);
-    }
-
-    @Override
-    public Cliente save(Cliente cliente) {
-        return repository.save(cliente);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Iterable<Cliente> findAll() {
-        return repository.findAll();
-    }
-
-    @Override
-    public void deleteById(Integer id) {
-        repository.findById(id);
-=======
 public class ClienteDAOImpl extends GenericoDAOImpl<Cliente, ClienteRepository> implements ClienteDAO {
 
     @Autowired
@@ -61,6 +33,5 @@ public class ClienteDAOImpl extends GenericoDAOImpl<Cliente, ClienteRepository> 
     public Iterable<Cliente> findClienteBySueldoLiquidoClienteAfter(Double sueldoLiquidoCliente) {
 
         return repository.findClienteBySueldoLiquidoClienteAfter(sueldoLiquidoCliente);
->>>>>>> main
     }
 }
