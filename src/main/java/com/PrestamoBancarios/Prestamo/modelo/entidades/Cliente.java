@@ -1,7 +1,8 @@
-package com.PrestamoBancarios.Prestamo.Modelo.entidades;
+package com.PrestamoBancarios.Prestamo.modelo.entidades;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -52,6 +53,10 @@ public class Cliente {
         this.sueldoLiquidoCliente = sueldoLiquidoCliente;
     }
 
+    public Cliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -100,6 +105,16 @@ public class Cliente {
         this.sueldoLiquidoCliente = sueldoLiquidoCliente;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cliente cliente = (Cliente) o;
+        return Objects.equals(nombreCliente, cliente.nombreCliente);
+    }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombreCliente);
+    }
 }

@@ -1,6 +1,6 @@
 package com.PrestamoBancarios.Prestamo.repositorios;
 
-import com.PrestamoBancarios.Prestamo.Modelo.entidades.Empleado;
+import com.PrestamoBancarios.Prestamo.modelo.entidades.Empleado;
 import com.PrestamoBancarios.Prestamo.datos.DatosDummy;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +16,8 @@ class EmpleadoRepositoryTest {
     EmpleadoRepository empleadoRepository;
     @BeforeEach
     void setUp(){
-        empleadoRepository.save(DatosDummy.empleado01());
-        empleadoRepository.save(DatosDummy.empleado02());
+        empleadoRepository.save(DatosDummy.empleado01(false));
+        empleadoRepository.save(DatosDummy.empleado02(false));
         empleadoRepository.save(DatosDummy.empleado03());
     }
 
@@ -27,23 +27,38 @@ class EmpleadoRepositoryTest {
     }
     @Test
     @DisplayName("Buscar empleados por nombre")
-    void findEmpleadoByNombreContains() {
+    void findEmpleadoByNombreEmpleadoContains() {
         //given
 
         //when
-        Iterable<Empleado> expected = empleadoRepository.findEmpleadoByNombreContains("Mario");
+        Iterable<Empleado> expected = empleadoRepository.findEmpleadoByNombreEmpleadoContains("Mario");
 
         //then
         assertThat(((List<Empleado>)expected).size() == 1).isTrue();
     }
 
-//    @Test
-//    @Disabled
-//    void findEmpleadoByNombreContainsIgnoreCase() {
-//    }
-//
-//    @Test
-//    @Disabled
-//    void findEmpleadoByApellidoContains() {
-//    }
+    @Test
+    @DisplayName("Buscar empleados por nombre ingnorando case")
+    void findEmpleadoByNombreEmpleadoContainsIgnoreCase() {
+        //given
+
+        //when
+        Iterable<Empleado> expected = empleadoRepository.findEmpleadoByNombreEmpleadoContainsIgnoreCase("rodrigo");
+
+        //then
+        assertThat(((List<Empleado>)expected).size() == 1).isTrue();
+    }
+
+    @Test
+    @DisplayName("Buscar empleados por Apellido")
+    void findEmpleadoByApellidoEmpleadoContains() {
+        //given
+
+        //when
+        Iterable<Empleado> expected = empleadoRepository.findEmpleadoByApellidoEmpleadoContains("Ruiz");
+
+        //then
+        assertThat(((List<Empleado>)expected).size() == 1).isTrue();
+
+    }
 }

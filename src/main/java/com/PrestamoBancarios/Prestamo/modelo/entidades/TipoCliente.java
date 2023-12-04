@@ -1,4 +1,4 @@
-package com.PrestamoBancarios.Prestamo.Modelo.entidades;
+package com.PrestamoBancarios.Prestamo.modelo.entidades;
 
 import jakarta.persistence.*;
 

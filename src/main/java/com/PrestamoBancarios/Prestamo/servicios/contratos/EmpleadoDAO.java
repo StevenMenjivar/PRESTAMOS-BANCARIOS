@@ -1,10 +1,10 @@
 package com.PrestamoBancarios.Prestamo.servicios.contratos;
 
-import com.PrestamoBancarios.Prestamo.Modelo.entidades.Empleado;
+import com.PrestamoBancarios.Prestamo.modelo.entidades.Empleado;
 
 public interface EmpleadoDAO extends GenericoDAO<Empleado>{
-    Iterable<Empleado> findEmpleadoByNombreContains(String nombreEmpleado);
-    Iterable<Empleado> findEmpleadoByNombreContainsIgnoreCase(String nombreEmpleado);
-    Iterable<Empleado> findEmpleadoByApellidoContains(String apellidoEmpleado);
+    Iterable<Empleado> findEmpleadoByNombreEmpleadoContains(String nombreEmpleado);
+    Iterable<Empleado> findEmpleadoByNombreEmpleadoContainsIgnoreCase(String nombreEmpleado);
+    Iterable<Empleado> findEmpleadoByApellidoEmpleadoContains(String apellidoEmpleado);
 
 }

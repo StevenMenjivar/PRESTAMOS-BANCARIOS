@@ -1,6 +1,6 @@
 package com.PrestamoBancarios.Prestamo.servicios.implementaciones;
 
-import com.PrestamoBancarios.Prestamo.Modelo.entidades.Cliente;
+import com.PrestamoBancarios.Prestamo.modelo.entidades.Cliente;
 import com.PrestamoBancarios.Prestamo.repositorios.ClienteRepository;
 import com.PrestamoBancarios.Prestamo.servicios.contratos.ClienteDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,31 +11,27 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 @Service
-public class ClienteDAOImpl implements ClienteDAO {
+public class ClienteDAOImpl extends GenericoDAOImpl<Cliente, ClienteRepository> implements ClienteDAO {
 
     @Autowired
-    @Qualifier("repositoriocliente")
-    private ClienteRepository repository;
-
-    @Override
-    @Transactional(readOnly = true)
-    public Optional<Cliente> findById(Integer id) {
-        return repository.findById(id);
+    public ClienteDAOImpl(@Qualifier("repositoriocliente")ClienteRepository repository) {
+        super(repository);
     }
 
     @Override
-    public Cliente save(Cliente cliente) {
-        return repository.save(cliente);
+    public Iterable<Cliente> findClienteByNombreClienteContains(String nombreCliente) {
+        return repository.findClienteByNombreClienteContains(nombreCliente);
     }
 
     @Override
-    @Transactional(readOnly = true)
-    public Iterable<Cliente> findAll() {
-        return repository.findAll();
+    public Iterable<Cliente> findClienteByEdadClienteBetween(Integer edadCliente,Integer edadCliente2) {
+
+        return repository.findClienteByEdadClienteBetween(edadCliente, edadCliente2);
     }
 
     @Override
-    public void deleteById(Integer id) {
-        repository.findById(id);
+    public Iterable<Cliente> findClienteBySueldoLiquidoClienteAfter(Double sueldoLiquidoCliente) {
+
+        return repository.findClienteBySueldoLiquidoClienteAfter(sueldoLiquidoCliente);
     }
 }

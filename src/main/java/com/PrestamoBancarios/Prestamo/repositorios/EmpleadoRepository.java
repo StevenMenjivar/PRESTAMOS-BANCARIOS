@@ -1,12 +1,12 @@
 package com.PrestamoBancarios.Prestamo.repositorios;
 
-import com.PrestamoBancarios.Prestamo.Modelo.entidades.Empleado;
+import com.PrestamoBancarios.Prestamo.modelo.entidades.Empleado;
 import org.springframework.data.repository.CrudRepository;
 
 public interface EmpleadoRepository extends CrudRepository<Empleado, Integer> {
 
-    Iterable<Empleado> findEmpleadoByNombreContains(String nombreEmpleado);
-    Iterable<Empleado> findEmpleadoByNombreContainsIgnoreCase(String nombreEmpleado);
-    Iterable<Empleado> findEmpleadoByApellidoContains(String apellidoEmpleado);
+    Iterable<Empleado> findEmpleadoByNombreEmpleadoContains(String nombreEmpleado);
+    Iterable<Empleado> findEmpleadoByNombreEmpleadoContainsIgnoreCase(String nombreEmpleado);
+    Iterable<Empleado> findEmpleadoByApellidoEmpleadoContains(String apellidoEmpleado);
 
 }

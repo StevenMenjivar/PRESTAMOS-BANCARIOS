@@ -1,4 +1,4 @@
-package com.PrestamoBancarios.Prestamo.Modelo.entidades.enumeradores;
+package com.PrestamoBancarios.Prestamo.modelo.entidades.enumeradores;
 
 public enum TipoCliente {
     PERSONA_NATURAL,
