@@ -1,10 +1,16 @@
 package com.PrestamoBancarios.Prestamo.modelo.entidades;
 
 import jakarta.persistence.*;
+<<<<<<< HEAD
 import org.springframework.data.annotation.Reference;
 
 import java.io.Serializable;
 import java.util.Optional;
+=======
+
+import java.io.Serializable;
+import java.util.Objects;
+>>>>>>> main
 import java.util.Set;
 
 @Entity
@@ -27,7 +33,11 @@ public class Prestamo implements Serializable {
     @Column(name = "cuota_pago_prestamo")
     private int cuotasPagoPrestamo;
 
+<<<<<<< HEAD
   public Prestamo prestamo;
+=======
+    public Prestamo prestamo;
+>>>>>>> main
 
 
     @ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) @JoinColumn(name = "garantia_id", foreignKey = @ForeignKey(name = "FK_garantia_id"))
@@ -64,12 +74,20 @@ public class Prestamo implements Serializable {
 
     public Prestamo(){}
 
+<<<<<<< HEAD
     public Prestamo(Integer id, Double cantidadPrestamo, Double tasaInteresPrestamo, int plazoPagoPrestamo, int cuotasPagoPrestamo) {
+=======
+    public Prestamo(Integer id, Cliente cliente, Double cantidadPrestamo, Double tasaInteresPrestamo, int plazoPagoPrestamo, int cuotasPagoPrestamo) {
+>>>>>>> main
         this.id = id;
         this.cantidadPrestamo = cantidadPrestamo;
         this.tasaInteresPrestamo = tasaInteresPrestamo;
         this.plazoPagoPrestamo = plazoPagoPrestamo;
         this.cuotasPagoPrestamo = cuotasPagoPrestamo;
+<<<<<<< HEAD
+=======
+        this.cliente=cliente;
+>>>>>>> main
     }
 
     public Integer getId() {
@@ -161,4 +179,20 @@ public class Prestamo implements Serializable {
     public void setEmpleados(Set<Empleado> empleados) {
         this.empleados = empleados;
     }
+<<<<<<< HEAD
+=======
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Prestamo prestamo = (Prestamo) o;
+        return cuotasPagoPrestamo == prestamo.cuotasPagoPrestamo;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cuotasPagoPrestamo);
+    }
+>>>>>>> main
 }

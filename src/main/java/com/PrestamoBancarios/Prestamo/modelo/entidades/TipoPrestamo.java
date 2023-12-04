@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package com.PrestamoBancarios.Prestamo.modelo.entidades;
+=======
+package com.PrestamoBancarios.Prestamo.Modelo.entidades;
+>>>>>>> main
 
 import jakarta.persistence.*;
 

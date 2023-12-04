@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 @Service
+<<<<<<< HEAD
 public class ClienteDAOImpl implements ClienteDAO {
 
     @Autowired
@@ -37,5 +38,29 @@ public class ClienteDAOImpl implements ClienteDAO {
     @Override
     public void deleteById(Integer id) {
         repository.findById(id);
+=======
+public class ClienteDAOImpl extends GenericoDAOImpl<Cliente, ClienteRepository> implements ClienteDAO {
+
+    @Autowired
+    public ClienteDAOImpl(@Qualifier("repositoriocliente")ClienteRepository repository) {
+        super(repository);
+    }
+
+    @Override
+    public Iterable<Cliente> findClienteByNombreClienteContains(String nombreCliente) {
+        return repository.findClienteByNombreClienteContains(nombreCliente);
+    }
+
+    @Override
+    public Iterable<Cliente> findClienteByEdadClienteBetween(Integer edadCliente,Integer edadCliente2) {
+
+        return repository.findClienteByEdadClienteBetween(edadCliente, edadCliente2);
+    }
+
+    @Override
+    public Iterable<Cliente> findClienteBySueldoLiquidoClienteAfter(Double sueldoLiquidoCliente) {
+
+        return repository.findClienteBySueldoLiquidoClienteAfter(sueldoLiquidoCliente);
+>>>>>>> main
     }
 }

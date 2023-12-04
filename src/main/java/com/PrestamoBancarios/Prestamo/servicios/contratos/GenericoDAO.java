@@ -1,7 +1,10 @@
 package com.PrestamoBancarios.Prestamo.servicios.contratos;
 
+<<<<<<< HEAD
 import com.PrestamoBancarios.Prestamo.modelo.entidades.Cliente;
 
+=======
+>>>>>>> main
 import java.util.Optional;
 
 public interface GenericoDAO<E> {

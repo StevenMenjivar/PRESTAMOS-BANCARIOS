@@ -2,6 +2,10 @@ package com.PrestamoBancarios.Prestamo.modelo.entidades;
 
 import jakarta.persistence.*;
 
+<<<<<<< HEAD
+=======
+import java.util.Objects;
+>>>>>>> main
 import java.util.Set;
 
 @Entity
@@ -72,4 +76,20 @@ public class Empleado {
     public void setApellidoEmpleado(String apellidoEmpleado) {
         this.apellidoEmpleado = apellidoEmpleado;
     }
+<<<<<<< HEAD
+=======
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Empleado empleado = (Empleado) o;
+        return Objects.equals(nombreEmpleado, empleado.nombreEmpleado);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombreEmpleado);
+    }
+>>>>>>> main
 }
