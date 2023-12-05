@@ -1,5 +1,7 @@
 package com.PrestamoBancarios.Prestamo.modelo.entidades;
 
+
+import com.PrestamoBancarios.Prestamo.modelo.entidades.Prestamo;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -137,6 +139,7 @@ public class Prestamo implements Serializable {
     public void setTipoPrestamo(TipoPrestamo tipoPrestamo) {
         this.tipoPrestamo = tipoPrestamo;
     }
+
 
     public Fiador getFiador() {
         return fiador;
