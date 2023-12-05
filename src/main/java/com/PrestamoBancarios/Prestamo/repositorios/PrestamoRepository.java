@@ -1,5 +1,7 @@
 package com.PrestamoBancarios.Prestamo.repositorios;
 
+import com.PrestamoBancarios.Prestamo.modelo.entidades.Cliente;
+import com.PrestamoBancarios.Prestamo.modelo.entidades.Empleado;
 import com.PrestamoBancarios.Prestamo.modelo.entidades.Prestamo;
 import org.springframework.data.repository.CrudRepository;
 
