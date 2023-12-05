@@ -5,11 +5,10 @@ import com.PrestamoBancarios.Prestamo.exeption.BadRequestException;
 import com.PrestamoBancarios.Prestamo.modelo.entidades.Cliente;
 import com.PrestamoBancarios.Prestamo.servicios.contratos.ClienteDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/clientes")
@@ -32,4 +31,16 @@ public class ClienteController {
         return clientes;
     }
 
+    @GetMapping("/{codigo}")
+    public Cliente obtenerPorId(@PathVariable(value = "codigo", required = false) Integer id){
+        Optional<Cliente> oCarrera = clienteDAO.findById(id);
+        if(!oCarrera.isPresent()){
+            throw new BadRequestException(String.format("La carrera con id %d no existe", id));
+        }
+        return oCarrera.get();
+    }
+    @PostMapping
+    public Cliente altaCliente(@RequestBody Cliente cliente){
+        return clienteDAO.save(cliente);
+    }
 }

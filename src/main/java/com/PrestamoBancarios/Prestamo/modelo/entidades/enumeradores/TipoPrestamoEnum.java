@@ -1,6 +1,6 @@
 package com.PrestamoBancarios.Prestamo.modelo.entidades.enumeradores;
 
-public enum TipoPrestamo {
+public enum TipoPrestamoEnum {
 
     CREDITO_HIPOTECARIO,
     CREDITO_VEHICULO,

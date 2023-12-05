@@ -1,6 +1,6 @@
 package com.PrestamoBancarios.Prestamo.modelo.entidades.enumeradores;
 
-public enum TipoCliente {
+public enum TipoClienteEnum {
     PERSONA_NATURAL,
     EMPLEADO_GOBIERNO,
     EMPLEADO_SECTOR_PRIVADO,
