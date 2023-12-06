@@ -11,7 +11,7 @@ public class TipoCliente {
     private Integer id;
 
     @Column(name = "descripcion")
-    private String descripcion;
+    private String descripcionTipoCliente;
 
     public TipoCliente(){}
 
@@ -23,11 +23,11 @@ public class TipoCliente {
         this.id = id;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescripcionTipoCliente() {
+        return descripcionTipoCliente;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcionTipoCliente(String descripcionTipoCliente) {
+        this.descripcionTipoCliente = descripcionTipoCliente;
     }
 }
