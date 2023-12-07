@@ -28,29 +28,19 @@ public class Cliente {
     @Column(name = "sueldo_liquido_cliente")
     private Double sueldoLiquidoCliente;
 
-    @ManyToMany(
-            fetch = FetchType.LAZY,
-            cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
-            }
-    )
-    @JoinTable(
-            name = "cliente_tipoCliente",
-            joinColumns = @JoinColumn(name = "cliente_id"),
-            inverseJoinColumns = @JoinColumn(name = "tipo_cliente_id")
-    )
-    private Set<TipoCliente> tipoClientes;
+    @ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) @JoinColumn(name = "tipocliente_id", foreignKey = @ForeignKey(name = "FK_ticliente_id"))
+    private TipoCliente tipoClientes;
 
     public Cliente(){}
 
-    public Cliente(Integer id, String nombreCliente, String apellidoCliente, int edadCliente, String duiCliente, Double sueldoLiquidoCliente) {
+    public Cliente(Integer id, String nombreCliente, String apellidoCliente, int edadCliente, String duiCliente, Double sueldoLiquidoCliente,TipoCliente tipoClientes) {
         this.id = id;
         this.nombreCliente = nombreCliente;
         this.apellidoCliente = apellidoCliente;
         this.edadCliente = edadCliente;
         this.duiCliente = duiCliente;
         this.sueldoLiquidoCliente = sueldoLiquidoCliente;
+        this.tipoClientes=tipoClientes;
     }
 
     public Cliente(String nombreCliente) {
@@ -103,6 +93,14 @@ public class Cliente {
 
     public void setSueldoLiquidoCliente(Double sueldoLiquidoCliente) {
         this.sueldoLiquidoCliente = sueldoLiquidoCliente;
+    }
+
+    public TipoCliente getTipoClientes() {
+        return tipoClientes;
+    }
+
+    public void setTipoClientes(TipoCliente tipoClientes) {
+        this.tipoClientes = tipoClientes;
     }
 
     @Override

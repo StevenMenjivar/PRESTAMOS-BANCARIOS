@@ -12,6 +12,10 @@ public class TipoPrestamo {
     @Column(name = "descripcion")
     private String descripcionTipoPrestamo;
 
+    public TipoPrestamo(String descripcionTipoPrestamo) {
+        this.descripcionTipoPrestamo = descripcionTipoPrestamo;
+    }
+
     public TipoPrestamo (){}
 
     public Integer getId() {

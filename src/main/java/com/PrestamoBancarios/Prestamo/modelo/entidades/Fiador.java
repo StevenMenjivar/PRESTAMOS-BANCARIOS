@@ -17,8 +17,14 @@ public class Fiador {
     private String apellidoFiador;
 
     @Column(name = "dui_fiador")
-    private char duiFiador;
+    private String duiFiador;
 
+
+    public Fiador(String nombreFiador, String apellidoFiador, String duiFiador) {
+        this.nombreFiador = nombreFiador;
+        this.apellidoFiador = apellidoFiador;
+        this.duiFiador = duiFiador;
+    }
 
     public Fiador(){}
 
@@ -46,11 +52,11 @@ public class Fiador {
         this.apellidoFiador = apellidoFiador;
     }
 
-    public char getDuiFiador() {
+    public String getDuiFiador() {
         return duiFiador;
     }
 
-    public void setDuiFiador(char duiFiador) {
+    public void setDuiFiador(String duiFiador) {
         this.duiFiador = duiFiador;
     }
 }

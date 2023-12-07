@@ -18,34 +18,23 @@ public class Empleado {
 
     @Column(name = "apellido_empleado")
     private String apellidoEmpleado;
-    @ManyToMany(
-            fetch = FetchType.LAZY,
-            cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
-            }
-    )
-    @JoinTable(
-            name = "empleado_sucursal",
-            joinColumns = @JoinColumn(name = "empleado_id"),
-            inverseJoinColumns = @JoinColumn(name = "sucursal_id")
-    )
-    private Set<Sucursal> sucursals;
+    @OneToOne(optional = true, cascade = CascadeType.ALL) @JoinColumn(name = "sucursal_id", foreignKey = @ForeignKey(name = "FK_sucursal_ID"))
+    private Sucursal sucursal;
 
 
-
-    public Set<Sucursal> getSucursals() {
-        return sucursals;
+    public Sucursal getSucursal() {
+        return sucursal;
     }
 
-    public void setSucursals(Set<Sucursal> sucursals) {
-        this.sucursals = sucursals;
+    public void setSucursal(Sucursal sucursal) {
+        this.sucursal = sucursal;
     }
 
-    public Empleado(Integer id, String nombreEmpleado, String apellidoEmpleado) {
+    public Empleado(Integer id, String nombreEmpleado, String apellidoEmpleado,Sucursal sucursal) {
         this.id = id;
         this.nombreEmpleado = nombreEmpleado;
         this.apellidoEmpleado = apellidoEmpleado;
+        this.sucursal=sucursal;
     }
 
     public Empleado(){}

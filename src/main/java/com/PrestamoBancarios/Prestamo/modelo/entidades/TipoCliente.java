@@ -13,6 +13,10 @@ public class TipoCliente {
     @Column(name = "descripcion")
     private String descripcionTipoCliente;
 
+    public TipoCliente(String descripcionTipoCliente) {
+        this.descripcionTipoCliente = descripcionTipoCliente;
+    }
+
     public TipoCliente(){}
 
     public Integer getId() {

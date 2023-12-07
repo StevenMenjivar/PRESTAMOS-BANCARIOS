@@ -13,6 +13,10 @@ public class Garantia {
     @Column(name = "descripcion_garantia")
     private String descripcionGarantia;
 
+    public Garantia(String descripcionGarantia) {
+        this.descripcionGarantia = descripcionGarantia;
+    }
+
     public Garantia(){}
 
     public Garantia(Integer id, String descripcionGarantia) {
